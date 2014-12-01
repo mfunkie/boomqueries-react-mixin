@@ -30,7 +30,7 @@
         currentBreak = -1;
 
         while (componentBreaksCounter--) {
-          if(currentWidth > comp.breaks[componentBreaksCounter][0]) {
+          if(currentWidth > currentComponent.breaks[componentBreaksCounter][0]) {
             currentBreak++;
           }
           element.classList.remove(currentComponent.breaks[componentBreaksCounter][1]);
