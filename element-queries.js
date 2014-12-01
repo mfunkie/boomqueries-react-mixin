@@ -1,7 +1,7 @@
 (function(window, undefined) {
   'use strict';
 
-  var elementQueryComponents;
+  var elementQueryComponents = [];
 
   function debounce(func, wait, immediate) {
     var timeout;
@@ -19,7 +19,7 @@
   }
 
   function calculateElements() {
-    var componentsCounter = Object.keys(elementQueryComponents).length;
+    var componentsCounter = elementQueryComponents.length;
     var currentComponent;
     var $elements;
 
