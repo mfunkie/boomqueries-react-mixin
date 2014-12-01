@@ -37,7 +37,7 @@
 
   function calculateElements() {
     var componentKeys = Object.keys(elementQueryComponents);
-    
+
     var currentComponent;
     var $elements;
 
@@ -74,7 +74,7 @@
   window.addEventListener("load",   calculateElements);
   window.addEventListener("resize", debounce(calculateElements, 100), false);
 
-  window.btElementQueries = {
+  window.elementQueries = {
     add:       add,
     remove:    remove,
     calculate: calculateElements
