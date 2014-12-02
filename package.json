@@ -9,6 +9,7 @@
     "email": "info@boomtownroi.com",
     "url": "http://boomtownroi.com"
   },
+  "main": "dist/js/boomqueries.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/boomtownroi/boomqueries"
@@ -32,5 +33,9 @@
     "gulp-uglify": "^1.0.1",
     "jshint-stylish": "^1.0.0",
     "merge-stream": "^0.1.6"
+  },
+  "_npmUser": {
+    "name": "mfunkie",
+    "email": "mfunk86@gmail.com"
   }
 }

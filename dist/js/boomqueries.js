@@ -1,6 +1,14 @@
-/*! BoomQueries 0.0.1 | http://boomtownroi.com | (c) 2014 BoomTown | MIT License */
-(function(window, undefined) {
-  "use strict";
+/*! BoomQueries 0.0.1 | http://boomtownroi.github.io/boomqueries/ | (c) 2014 BoomTown | MIT License */
+(function (global, boomQueries) {
+  if(typeof define === 'function' && define.amd) {
+    define(['boomQueries'], boomQueries);
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = boomQueries();
+  } else {
+    window.boomQueries = boomQueries();
+  }
+}(window, function() {
+  'use strict';
 
   var boomQueriesComponents = {};
   var elementKey = 0;
@@ -22,7 +30,7 @@
 
   function add(nameOrObject, descriptor) {
     var key;
-    if (typeof nameOrObject === "string") {
+    if (typeof nameOrObject === 'string') {
       key = nameOrObject;
       boomQueriesComponents[nameOrObject] = descriptor;
     } else {
@@ -72,13 +80,12 @@
     });
   }
 
-  window.addEventListener("load",   calculateElements);
-  window.addEventListener("resize", debounce(calculateElements, 100), false);
+  window.addEventListener('load',   calculateElements);
+  window.addEventListener('resize', debounce(calculateElements, 100), false);
 
-  window.boomQueries = {
+  return {
     add:       add,
     remove:    remove,
     calculate: calculateElements
   };
-
-})(window);
+}));
