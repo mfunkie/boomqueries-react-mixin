@@ -1,7 +1,7 @@
 (function(window, undefined) {
   "use strict";
 
-  var elementQueryComponents = {};
+  var boomQueriesComponents = {};
   var elementKey = 0;
 
   function debounce(func, wait, immediate) {
@@ -23,20 +23,20 @@
     var key;
     if (typeof nameOrObject === "string") {
       key = nameOrObject;
-      elementQueryComponents[nameOrObject] = descriptor;
+      boomQueriesComponents[nameOrObject] = descriptor;
     } else {
       key = elementKey++;
-      elementQueryComponents[key] = nameOrObject;
+      boomQueriesComponents[key] = nameOrObject;
     }
     return key;
   }
 
   function remove(key) {
-    delete elementQueryComponents[key];
+    delete boomQueriesComponents[key];
   }
 
   function calculateElements() {
-    var componentKeys = Object.keys(elementQueryComponents);
+    var componentKeys = Object.keys(boomQueriesComponents);
 
     var currentComponent;
     var $elements;
@@ -61,7 +61,7 @@
     }
 
     componentKeys.forEach(function(key) {
-      currentComponent = elementQueryComponents[key];
+      currentComponent = boomQueriesComponents[key];
       if (currentComponent.name) {
         $elements = document.querySelectorAll(currentComponent.name);
       } else if (currentComponent.element) {
@@ -74,7 +74,7 @@
   window.addEventListener("load",   calculateElements);
   window.addEventListener("resize", debounce(calculateElements, 100), false);
 
-  window.elementQueries = {
+  window.boomQueries = {
     add:       add,
     remove:    remove,
     calculate: calculateElements
