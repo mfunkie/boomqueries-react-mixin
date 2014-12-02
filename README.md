@@ -22,7 +22,7 @@ There's a few options to get up and running with BoomQueries:
 
 Use `window.boomQueries.add()` to register your component(s) with the BoomQueries library. Each instanse can house a `key`; can be used to interact after it has been registered, a `selector`, and a `breaks` array, which holds references to your desired `min-width` breakpoint and the class to be added to your component.
 
-	window.boomQueries.add(".component", {
+	window.boomQueries.add("COMPONENTKEY", {
 	  selector: ".component",
 	  breaks: [
 	    [480, "component--md"],
