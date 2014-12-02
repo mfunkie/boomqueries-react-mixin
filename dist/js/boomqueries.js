@@ -1,5 +1,6 @@
+/*! BoomQueries 0.0.1 | http://boomtownroi.com | (c) 2014 BoomTown | MIT License */
 (function(window, undefined) {
-  'use strict';
+  "use strict";
 
   var elementQueryComponents = {};
   var elementKey = 0;
@@ -21,7 +22,7 @@
 
   function add(nameOrObject, descriptor) {
     var key;
-    if (typeof nameOrObject === 'string') {
+    if (typeof nameOrObject === "string") {
       key = nameOrObject;
       elementQueryComponents[nameOrObject] = descriptor;
     } else {
@@ -79,4 +80,5 @@
     remove:    remove,
     calculate: calculateElements
   };
+
 })(window);
