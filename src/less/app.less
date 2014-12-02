@@ -1,0 +1,97 @@
+// File: app.less
+
+@blue:            #5bc0de;
+@green:           #669900;
+@orange:          #f68a24;
+@gray-light:      #cccccc;
+@gray-lighter:    #ececec;
+
+
+
+body {
+  background-color: @gray-lighter;
+  font-family: 'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif; // override bootstrap
+}
+
+.title-page {
+  font-weight: normal;
+  margin: 1em 0 1em 0;
+}
+
+.title-column {
+  color: @gray-light;
+  font-weight: normal;
+  margin: 0 0 1em 0;
+}
+
+.add-component {
+  margin: 1em 0;
+}
+
+// Component
+
+.component {
+  background-color: @blue;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  margin: 1em 0;
+  padding: 1em;
+  transition: all .5s;
+}
+
+.component__header {
+  color: white;
+  font-weight: normal;
+  margin: 0 0 1em 0;
+}
+
+.component--md {
+  background-color: darken(@blue,10%);
+  .component__header:after {
+    content: "(medium)";
+  }
+}
+
+.component--lg {
+  background-color: darken(@blue,20%);
+  .component__header:after {
+    content: "(large)";
+  }
+}
+
+.component--xlg {
+  background-color: darken(@blue,40%);
+  .component__header:after {
+    content: "(xlarge)";
+  }
+}
+
+/////////////
+
+.component2 {
+  background-color: @green;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  margin: 1em 0;
+  padding: 1em;
+  transition: all .5s;
+}
+
+.component2__header {
+  color: white;
+  font-weight: normal;
+  margin: 0 0 1em 0;
+}
+
+.component2--md {
+  background-color: darken(@green,10%);
+  .component2__header:after {
+    content: "(medium)";
+  }
+}
+
+.component2--lg {
+  background-color: darken(@green,20%);
+  .component2__header:after {
+    content: "(large)";
+  }
+}
+
