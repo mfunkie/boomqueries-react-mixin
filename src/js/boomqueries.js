@@ -62,8 +62,8 @@
 
     componentKeys.forEach(function(key) {
       currentComponent = boomQueriesComponents[key];
-      if (currentComponent.name) {
-        $elements = document.querySelectorAll(currentComponent.name);
+      if (currentComponent.selector) {
+        $elements = document.querySelectorAll(currentComponent.selector);
       } else if (currentComponent.element) {
         $elements = [currentComponent.element];
       }

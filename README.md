@@ -20,28 +20,28 @@ There's a few options to get up and running with BoomQueries:
 
 ## Initializing/Adding Components
 
-Use `window.boomQueries.add()` to register your component(s) with the BoomQueries library. Each instanse can house a `name` (or `key`); can be used to interact after it has been registered, and a `breaks` array, which holds references to your desired `min-width` breakpoint and the class to be added to your component.
+Use `window.boomQueries.add()` to register your component(s) with the BoomQueries library. Each instanse can house a `key`; can be used to interact after it has been registered, a `selector`, and a `breaks` array, which holds references to your desired `min-width` breakpoint and the class to be added to your component.
 
-	window.boomQueries.add(".component", { 
-	  name: ".component", 
+	window.boomQueries.add(".component", {
+	  selector: ".component",
 	  breaks: [
 	    [480, "component--md"],
 	    [600, "component--lg"]
 	  ]
 	});
-	
+
 Once you have added your components, you can initialize BoomQueries with:
 
 	window.boomQueries.calculate();
-	
+
 ## Removing Components
 
 You can remove components registered by BoomQueries by calling the `remove` method and specifying your component `key`.
 
 	window.boomQueries.remove(".component");
-	
+
 _You can freely add/remove components as needed throughout your app, so don't feel that you need to register them all at once!_
-	
+
 ## Working with Dynamic Content
 
 Using Backbone, Angular, React, etc. to dynamically interact with DOM elements? You can easily "refresh" BoomQueries by calling the `calculate()` method again:

@@ -44,5 +44,24 @@
     </div> <!-- end row -->
   </div>
 
+  <script>
+    window.boomQueries.add("component", {
+      selector: ".component",
+      breaks: [
+        [480, "component--md"],
+        [600, "component--lg"],
+        [700, "component--xlg"]
+      ]
+    });
+    window.boomQueries.add("component2", {
+      selector: ".component2",
+      breaks: [
+        [520, "component2--md"],
+        [680, "component2--lg"]
+      ]
+    });
+    window.boomQueries.calculate();
+  </script>
+
 </body>
 </html>
