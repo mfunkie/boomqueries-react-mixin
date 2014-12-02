@@ -9,6 +9,10 @@
     "email": "info@boomtownroi.com",
     "url": "http://boomtownroi.com"
   },
+  "files": [
+    "README.md",
+    "dist/js/boomqueries.js"
+  ],
   "main": "dist/js/boomqueries.js",
   "repository": {
     "type": "git",
