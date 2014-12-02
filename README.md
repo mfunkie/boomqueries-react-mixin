@@ -38,7 +38,7 @@ Once you have added your components, you can initialize BoomQueries with:
 
 You can remove components registered by BoomQueries by calling the `remove` method and specifying your component `key`.
 
-	window.boomQueries.remove(".component");
+	window.boomQueries.remove("COMPONENTKEY");
 
 _You can freely add/remove components as needed throughout your app, so don't feel that you need to register them all at once!_
 
