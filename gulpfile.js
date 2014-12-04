@@ -15,7 +15,6 @@ var pkg          = require('./package.json'),
 // Used for copyright headers
 var banner = "/*! <%= pkg.title %> <%= pkg.version %> | <%= pkg.homepage %> | (c) 2014 BoomTown | MIT License */\n";
 
-
 // Styles
 gulp.task('styles', function() {
   return gulp.src(["src/less/app.less"])
@@ -89,6 +88,3 @@ gulp.task('server', ['watch', 'browser-sync'], function () {
 
 // Default task
 gulp.task("default", ["styles", "jshint", "scripts"]);
-
-
-
