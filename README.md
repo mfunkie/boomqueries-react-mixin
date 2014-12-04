@@ -1,6 +1,6 @@
 # BoomQueries
 
-BoomQueries is our take on element-queries; sizing elements based on their container.
+BoomQueries is our take on element queries; sizing elements based on their container.
 
 As our product has grown to be more modular, we began to see the limitations of sizing those modular components across more granular scopes; main content areas, sidebars, etc. And most of all, the specificities of keeping up with all these variations started to take a toll on productivity and maintenance. While there are other implementations, we didn't find any that quite fit our needs. The benefits of our version are:
 
