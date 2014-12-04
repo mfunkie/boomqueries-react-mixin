@@ -1,4 +1,3 @@
-
 (function (global, boomQueries) {
   if(typeof define === 'function' && define.amd) {
     define(['boomQueries'], boomQueries);
