@@ -127,9 +127,15 @@
     if ( typeof selector === 'string' ) {
       this._addSelector(selector, breakPoints);
     } else {
-      var id = null;
+      var id = null, self = this;
       if ( name !== 'undefined' ) id = name;
-      this._add(selector, breakPoints, id);
+      if ( selector.constructor === Array ) {
+        selector.forEach(function(node){
+          self._add(node, breakPoints, id);
+        });
+      } else {
+        this._add(selector, breakPoints, id);
+      }
     }
     this.update();
   };
@@ -160,25 +166,24 @@
 
   // Remove internal nodes based on selector or it's presence in the DOM
   boomQuery.prototype.remove = function(selector) {
-    // Loop through internal array of nodes
-    for ( var i = this.nodes.length; i--; ) {
-
-      // Remove node based on selector or unique name provided
-      if ( selector !== undefined ) {
+    // Remove node based on selector or unique name provided
+    if ( selector !== undefined ) {
+      for ( var i = this.nodes.length; i--; ) {
         if ( this.nodes[i].selector === selector ) {
           this._delete(i);
         }
-
-      // If a selector is not passed, let's remove the node if it is no longer in DOM
-      } else {
+      }
+      // Make sure our selector map actually has selector before deleting
+      // If we pass an ID of DOM node to delete, it won't be contained in our selector map
+      if ( this.map.hasOwnProperty(selector) ) delete this.map[selector];
+    // If a selector is not passed, let's remove the node if it is no longer in the DOM
+    } else {
+      for ( var i = this.nodes.length; i--; ) {
         if ( !document.body.contains(this.nodes[i]) ) {
           this._delete(i);
         }
       } 
-
     }
-
-    if ( selector !== undefined ) delete this.map[selector];
   };
 
   boomQuery.prototype.get = function(selector) {
