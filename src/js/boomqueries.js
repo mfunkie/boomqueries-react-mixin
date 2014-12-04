@@ -173,7 +173,9 @@
           this._delete(i);
         }
       }
-      delete this.map[selector];
+      // Make sure our selector map actually has selector before deleting
+      // If we pass an ID of DOM node to delete, it won't be contained in our selector map
+      if ( this.map.hasOwnProperty(selector) ) delete this.map[selector];
     // If a selector is not passed, let's remove the node if it is no longer in the DOM
     } else {
       for ( var i = this.nodes.length; i--; ) {
