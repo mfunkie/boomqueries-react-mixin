@@ -1,5 +1,5 @@
 /*! BoomQueries 0.0.3 | http://boomtownroi.github.io/boomqueries/ | (c) 2014 BoomTown | MIT License */
-/*! BoomQueries 0.0.3 | http://boomtownroi.github.io/boomqueries/ | (c) 2014 BoomTown | MIT License */
+
 (function (global, boomQueries) {
   if(typeof define === 'function' && define.amd) {
     define(['boomQueries'], boomQueries);
