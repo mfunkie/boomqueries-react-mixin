@@ -31,7 +31,7 @@ Use `boomQueries.add()` to register your component(s) with the BoomQueries libra
 	]);
 
 You can also register DOM nodes.
-	
+
 	var component = document.createElement('div');
 	boomQueries.add(component, [
 	    [480, "component--md"],
@@ -87,7 +87,6 @@ Using Backbone, Angular, React, etc. to dynamically interact with DOM elements? 
 
 	boomQueries.refresh();
 
-
 ## CommonJS Usage
 
 Anywhere you see window.boomQueries in our examples can be replaced with the CommonJS module version.
@@ -115,6 +114,16 @@ And although it is not recommended, you can access the internal data for debuggi
 
 `boomQueries.nodes`
 `boomQueries.map`
+
+## Contributing
+
+Have something you want to add to BoomQueries? Great! Here's a few helpful tips to get started:
+
+_We use [GulpJS](http://gulpjs.com) to compile BoomQueries, so make sure you have that and [Node.js](http://nodejs.org/) installed._
+
+* Clone the repo, `git clone git://github.com/boomtownroi/boomqueries.git`
+* `npm install` to add-in Gulp dependencies
+* `gulp server` to fire up a browser (using [BrowserSync](http://www.browsersync.io/)) which will take care of compiling and reloading the page.
 
 
 ## Versioning
