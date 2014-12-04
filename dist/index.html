@@ -45,22 +45,8 @@
 
   <script src="js/boomqueries.js"></script>
   <script>
-    window.boomQueries.add("COMPONENTKEY", {
-      selector: ".component",
-      breaks: [
-        [480, "component--md"],
-        [600, "component--lg"],
-        [700, "component--xlg"]
-      ]
-    });
-    window.boomQueries.add("COMPONENT2KEY", {
-      selector: ".component2",
-      breaks: [
-        [520, "component2--md"],
-        [680, "component2--lg"]
-      ]
-    });
-    window.boomQueries.calculate();
+    boomQueries.add(".component", [[480, "component--md"],[600, "component--lg"],[700, "component--xlg"]]);
+    boomQueries.add(".component2", [[520, "component2--md"],[680, "component2--lg"]]);
   </script>
 
 </body>
