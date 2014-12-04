@@ -19,35 +19,74 @@ There's a few options to get up and running with BoomQueries:
 * Install with [Bower](http://bower.io): `bower install boomqueries`
 * Install with [npm](http://npmjs.org): `npm install boomqueries`
 
+Please see tests/kitchensink.html for a thorough example of usage.
+
 ## Initializing/Adding Components
 
-Use `window.boomQueries.add()` to register your component(s) with the BoomQueries library. Each instance can house a `key`; can be used to interact after it has been registered, a `selector`, and a `breaks` array, which holds references to your desired `min-width` breakpoint and the class to be added to your component.
+Use `boomQueries.add()` to register your component(s) with the BoomQueries library.
 
-	window.boomQueries.add("COMPONENTKEY", {
-	  selector: ".component",
-	  breaks: [
+	boomQueries.add('.component', [
 	    [480, "component--md"],
 	    [600, "component--lg"]
-	  ]
-	});
+	]);
 
-Once you have added your components, you can initialize BoomQueries with:
+You can also register DOM nodes.
+	
+	var component = document.createElement('div');
+	boomQueries.add(component, [
+	    [480, "component--md"],
+	    [600, "component--lg"]
+	]);
 
-	window.boomQueries.calculate();
+When registering DOM nodes, you can pass an additional third parameter, id, to reference your node later in the application.
+
+	var component = document.createElement('div');
+	boomQueries.add(component, [
+	    [480, "component--md"],
+	    [600, "component--lg"]
+	], 'myComponent');
+
+	// boomQueries.get('myComponent')
+
+
+## Refreshing Components
+
+When you are working with a dynamic application that has lots of DOM changes, you should refresh your boomQueries after change.
+
+	boomQueries.refresh();
+
+The refresh method will remove event listeners from watched nodes that are no longer in the DOM and grab newly added elements based on their css selector.
+
+
+## Component Callback
+
+There are times when you would want to fire additional functionality on a node after it's been updated. You can do this by attaching a custom event listener to that node.
+
+	var component = document.createElement('div');
+    document.body.appendChild(component);
+
+    component.addEventListener('nodeUpdated', function(event){
+        console.log(event.detail);
+    });
+
+We pass the callback an object about the recent update: 'offsetWidth' and 'currentBreak'
+
 
 ## Removing Components
 
-You can remove components registered by BoomQueries by calling the `remove` method and specifying your component `key`.
+You can remove components registered by BoomQueries by calling the `remove` method and specifying either your custom id or css selector.
 
-	window.boomQueries.remove("COMPONENTKEY");
+	boomQueries.remove('myComponent');
 
 _You can freely add/remove components as needed throughout your app, so don't feel that you need to register them all at once!_
 
+
 ## Working with Dynamic Content
 
-Using Backbone, Angular, React, etc. to dynamically interact with DOM elements? You can easily "refresh" BoomQueries by calling the `calculate()` method again:
+Using Backbone, Angular, React, etc. to dynamically interact with DOM elements? You can easily "refresh" BoomQueries by calling the `refresh()` method again:
 
-	window.boomQueries.calculate();
+	boomQueries.refresh();
+
 
 ## CommonJS Usage
 
@@ -56,18 +95,27 @@ Anywhere you see window.boomQueries in our examples can be replaced with the Com
 ```js
 var boomQueries = require('boomqueries');
 
-boomQueries.add("COMPONENTKEY", {
-	selector: ".component",
-	breaks: [
-		[480, "component--md"],
-		[600, "component--lg"]
-	]
-});
+boomQueries.add(".component", [
+	[480, "component--md"],
+	[600, "component--lg"]
+]);
 
-boomQueries.remove("COMPONENTKEY");
+boomQueries.remove(".component");
 
-boomQueries.calculate();
+boomQueries.refresh();
 ```
+
+## Internal Inspection
+
+If you need to see what nodes are currently being watched, you can log `boomQueries.inspect()`
+
+If you need to see which css selectors are being followed/refreshed, you can log `boomQueries.inspect('map')`
+
+And although it is not recommended, you can access the internal data for debugging purposes:
+
+`boomQueries.nodes`
+`boomQueries.map`
+
 
 ## Versioning
 
