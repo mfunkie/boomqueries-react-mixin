@@ -69,7 +69,7 @@ There are times when you would want to fire additional functionality on a node a
         console.log(event.detail);
     });
 
-We pass the callback and object of details about the recent update: 'offsetWidth' and 'currentBreak'
+We pass the callback an object about the recent update: 'offsetWidth' and 'currentBreak'
 
 
 ## Removing Components
