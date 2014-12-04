@@ -182,6 +182,15 @@
     }
   };
 
+  boomQuery.prototype.get = function(selector) {
+    // Loop through internal array of nodes
+    for ( var i = this.nodes.length; i--; ) {
+      if ( this.nodes[i].selector === selector ) {
+        return this.nodes[i];
+      }
+    }
+  };
+
   // Just logs the internal array of nodes for debug/inspection
   // You can specify which internal store you want to inspect: map or nodes
   boomQuery.prototype.inspect = function(which) {
