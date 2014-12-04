@@ -46,7 +46,18 @@ When registering DOM nodes, you can pass an additional third parameter, id, to r
 	    [600, "component--lg"]
 	], 'myComponent');
 
-	// boomQueries.get('myComponent')
+	// boomQueries.get('myComponent') you can get your node 
+	// boomQueries.remove('myComponent') you can remove your node
+
+You can also bulk add DOM nodes.
+
+	var components = [document.createElement('div'), document.createElement('div'), document.createElement('div'), document.createElement('div')];
+	boomQueries.add(components, [
+	    [480, "component--md"],
+	    [600, "component--lg"]
+	], 'myComponents');
+
+	// boomQueries.remove('myComponents') to remove them
 
 
 ## Refreshing Components

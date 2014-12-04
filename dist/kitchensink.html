@@ -58,7 +58,6 @@
 
     <div class="row">
       <div class="col-xs-12 col-md-8" id="third-column">
-        <h3 class="title-column">Column</h3>
         
 
       </div> <!-- end column -->
@@ -226,6 +225,52 @@
 
       console.log("Did you catch that? .component2 elements are no longer updating...");
     }, 10000);
+
+    setTimeout(function(){
+      console.groupCollapsed("Removing DOM element by ID");
+
+        console.log("If you noticed in the previous test, the internal nodes length is actually 5.");
+        console.log("This is because one of the .component2 elements was added as a DOM node with a specific ID. Let's remove that element now.");
+
+        boomQueries.remove("myCustomNode2");
+
+        console.log("%cboomQueries.remove('myCustomNode2');", "font-weight:bold;font-size:12px;color:#080;");
+
+        console.assert(boomQueries.nodes.length === 4, "We now have 4 elements in our internal array of nodes.");
+        console.log("Internal Array of Nodes: " + boomQueries.nodes.length);
+        boomQueries.inspect();
+
+        console.log("Now our internal array of nodes is 4. BOOM!");
+
+      console.groupEnd();
+    }, 12000);
+
+    setTimeout(function(){
+      console.groupCollapsed("Batch adding DOM nodes");
+
+        var component = createComponent();
+        thirdColumn.appendChild(component);
+
+        var component2 = createComponent2();
+        thirdColumn.appendChild(component2);
+
+        var component3 = createComponent();
+        fourthColumn.appendChild(component3);
+
+        var component4 = createComponent2();
+        fourthColumn.appendChild(component4);
+
+        var components = [component, component2, component3, component4];
+        boomQueries.add(components, [[480, "component--md"],[600, "component--lg"],[700, "component--xlg"]], 'boomNodes');
+
+        console.log("%cboomQueries.add(components, breakPoints, 'boomNodes');", "font-weight:bold;font-size:12px;color:#080;");
+
+        console.assert(boomQueries.nodes.length === 8, "We now have 8 elements in our internal array of nodes.");
+        console.log("Internal Array of Nodes: " + boomQueries.nodes.length);
+        boomQueries.inspect();
+
+      console.groupEnd();
+    }, 14000);
 
 
 
