@@ -170,7 +170,6 @@
         if ( this.nodes[i].selector === selector ) {
           this._delete(i);
         }
-        delete this.map[selector];
 
       // If a selector is not passed, let's remove the node if it is no longer in DOM
       } else {
@@ -180,6 +179,8 @@
       } 
 
     }
+
+    if ( selector !== undefined ) delete this.map[selector];
   };
 
   boomQuery.prototype.get = function(selector) {
