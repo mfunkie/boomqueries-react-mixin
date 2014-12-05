@@ -12,7 +12,7 @@
 }(this, function() {
   'use strict';
 
-  function boomQuery() {
+  function BoomQuery() {
     // Array of dom nodes which update their class when the window resizes
     this.nodes = [];
 
@@ -24,7 +24,7 @@
   }
 
   // Rate limit the amount of times our update method gets called on window resize
-  boomQuery.prototype.debounce = function(context, func, wait, immediate) {
+  BoomQuery.prototype.debounce = function(context, func, wait, immediate) {
     var timeout;
     return function() {
       var args = arguments;
@@ -40,7 +40,7 @@
   };
 
   // Called whenever we need to ensure all nodes have their proper class
-  boomQuery.prototype.update = function(options) {
+  BoomQuery.prototype.update = function(options) {
     var details = {};
     // You can pass a custom object to each node when we dispatch the event
     if ( typeof options !== 'undefined' ) details["detail"] = options;
@@ -53,7 +53,7 @@
 
   // Internal function that accepts a DOM node with break points
   // Adds custom properties and a listener to the node and then stores the node in an internal array
-  boomQuery.prototype._add = function(node, breakPoints, selector) {
+  BoomQuery.prototype._add = function(node, breakPoints, selector) {
     // Check to ensure we aren't already tracking this node
     if ( node.breaks === undefined ) {
 
@@ -111,7 +111,7 @@
   };
 
   // Internal method that accepts a css selector,
-  boomQuery.prototype._addSelector = function(selector, breakPoints) {
+  BoomQuery.prototype._addSelector = function(selector, breakPoints) {
     // Add selector to internal map hash for refreshing
     this.map[selector] = breakPoints;
 
@@ -126,7 +126,7 @@
   // Can add a css selector or DOM node as first par
   // Breakpoints is a multi dimensional array containing an offsetWidth int and a corresponding class name
   // Name is an optional parameter that allows you to specify or name a DOM node
-  boomQuery.prototype.add = function (selector, breakPoints, name) {
+  BoomQuery.prototype.add = function (selector, breakPoints, name) {
     if ( typeof selector === 'string' ) {
       this._addSelector(selector, breakPoints);
     } else {
@@ -144,7 +144,7 @@
   };
 
   // Call refresh method when new DOM elements have been added
-  boomQuery.prototype.refresh = function() {
+  BoomQuery.prototype.refresh = function() {
     // First let's remove any nodes which have been removed from DOM
     this.remove();
 
@@ -158,7 +158,7 @@
   };
 
   // Internal method to stay DRY
-  boomQuery.prototype._delete = function(i) {
+  BoomQuery.prototype._delete = function(i) {
     // Remove event listener before discarding to avoid zombies
     this.nodes[i].dispatchEvent(new CustomEvent("cleanup"));
     this.nodes[i].removeEventListener("checkyourself");
@@ -168,7 +168,7 @@
   };
 
   // Remove internal nodes based on selector or it's presence in the DOM
-  boomQuery.prototype.remove = function(selector) {
+  BoomQuery.prototype.remove = function(selector) {
     // Remove node based on selector or unique name provided
     if ( selector !== undefined ) {
       for ( var i = this.nodes.length; i--; ) {
@@ -189,7 +189,7 @@
     }
   };
 
-  boomQuery.prototype.get = function(selector) {
+  BoomQuery.prototype.get = function(selector) {
     // Loop through internal array of nodes
     for ( var i = this.nodes.length; i--; ) {
       if ( this.nodes[i].selector === selector ) {
@@ -200,13 +200,13 @@
 
   // Just logs the internal array of nodes for debug/inspection
   // You can specify which internal store you want to inspect: map or nodes
-  boomQuery.prototype.inspect = function(which) {
+  BoomQuery.prototype.inspect = function(which) {
     if ( typeof console !== "undefined" ) {
       if ( which === 'map' ) console.log(this.map);
       else console.log(this.nodes);
     }
   };
 
-  return new boomQuery();
+  return new BoomQuery();
 
 }));
