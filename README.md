@@ -16,7 +16,7 @@ There's a few options to get up and running with BoomQueries:
 
 * Download the [latest release](https://github.com/boomtownroi/boomqueries/releases/latest)
 * Clone the repo, `git clone git://github.com/boomtownroi/boomqueries.git`
-* Install with [Bower](http://bower.io): `bower install boomqueries`
+* Install with [Bower](http://bower.io): `bower install boomqueries --save`
 * Install with [npm](http://npmjs.org): `npm install boomqueries`
 
 Please see tests/kitchensink.html for a thorough example of usage.
@@ -46,7 +46,7 @@ When registering DOM nodes, you can pass an additional third parameter, id, to r
 	    [600, "component--lg"]
 	], 'myComponent');
 
-	// boomQueries.get('myComponent') you can get your node 
+	// boomQueries.get('myComponent') you can get your node
 	// boomQueries.remove('myComponent') you can remove your node
 
 You can also bulk add DOM nodes.
