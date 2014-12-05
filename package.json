@@ -1,7 +1,7 @@
 {
   "name": "boomqueries",
   "title": "BoomQueries",
-  "description": "BoomQueries is our take on element-queries; sizing elements based on their container.",
+  "description": "BoomQueries is our take on element queries; sizing elements based on their container.",
   "version": "0.0.4",
   "keywords": [
     "boomqueries",
