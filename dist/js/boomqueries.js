@@ -1,13 +1,16 @@
 /*! BoomQueries 0.0.4 | http://boomtownroi.github.io/boomqueries/ | (c) 2014 BoomTown | MIT License */
-(function (global, boomQueries) {
-  if(typeof define === 'function' && define.amd) {
-    define(['boomQueries'], boomQueries);
-  } else if (typeof module === 'object' && module.exports) {
-    module.exports = boomQueries();
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD
+    define(['boomQueries'], factory);
+  } else if (typeof exports === 'object') {
+    // Node, CommonJS-like
+    module.exports = factory();
   } else {
-    window.boomQueries = boomQueries();
+    // Browser globals (root is window)
+    root.boomQueries = factory();
   }
-}(window, function() {
+}(this, function() {
   'use strict';
 
   function boomQuery() {
@@ -16,7 +19,7 @@
 
     // Hash of selectors with their corresponding break points
     this.map = {};
-    
+
     // Dispatch our custom event when the window resizes
     window.addEventListener('resize', this.debounce(this, this.update, 100), false);
   }
@@ -54,11 +57,11 @@
   boomQuery.prototype._add = function(node, breakPoints, selector) {
     // Check to ensure we aren't already tracking this node
     if ( node.breaks === undefined ) {
-      
+
       // Store the break points array in the node
       node.breaks = breakPoints;
 
-      // If we pass a selector/name, add it to the node so we can reference it later 
+      // If we pass a selector/name, add it to the node so we can reference it later
       if ( selector !== null ) node.selector = selector;
 
       // Attach an event listener with functionality to update it's own class
@@ -108,7 +111,7 @@
     }
   };
 
-  // Internal method that accepts a css selector, 
+  // Internal method that accepts a css selector,
   boomQuery.prototype._addSelector = function(selector, breakPoints) {
     // Add selector to internal map hash for refreshing
     this.map[selector] = breakPoints;
@@ -183,7 +186,7 @@
         if ( !document.body.contains(this.nodes[i]) ) {
           this._delete(i);
         }
-      } 
+      }
     }
   };
 
