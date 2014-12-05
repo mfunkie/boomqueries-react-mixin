@@ -44,7 +44,7 @@
   BoomQuery.prototype.update = function(options) {
     var details = {};
     // You can pass a custom object to each node when we dispatch the event
-    if ( typeof options !== 'undefined' ) details["detail"] = options;
+    if ( typeof options !== 'undefined' ) details.detail = options;
     var updateEvent = new CustomEvent("checkyourself", details);
     // Loop through our nodes firing a "checkyourself" event on each of them
     this.nodes.forEach(function(node) {
@@ -170,9 +170,11 @@
 
   // Remove internal nodes based on selector or it's presence in the DOM
   BoomQuery.prototype.remove = function(selector) {
+    var i;
+
     // Remove node based on selector or unique name provided
     if ( selector !== undefined ) {
-      for ( var i = this.nodes.length; i--; ) {
+      for ( i = this.nodes.length; i--; ) {
         if ( this.nodes[i].selector === selector ) {
           this._delete(i);
         }
@@ -182,7 +184,7 @@
       if ( this.map.hasOwnProperty(selector) ) delete this.map[selector];
     // If a selector is not passed, let's remove the node if it is no longer in the DOM
     } else {
-      for ( var i = this.nodes.length; i--; ) {
+      for ( i = this.nodes.length; i--; ) {
         if ( !document.body.contains(this.nodes[i]) ) {
           this._delete(i);
         }
