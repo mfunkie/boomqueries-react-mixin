@@ -205,7 +205,7 @@
   }
 
   // Dispatch our custom event when the window resizes
-  window.addEventListener('resize', debounce(this, update, 100), false);
+  window.addEventListener('resize', debounce(null, update, 100), false);
 
   return {
     // Exposing for tests
