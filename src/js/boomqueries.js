@@ -23,6 +23,35 @@
     window.addEventListener('resize', this.debounce(this, this.update, 100), false);
   }
 
+  // classList.add() Polyfill
+  function addClass(el, className) {
+    if (el.classList)
+      el.classList.add(className);
+    else
+      el.className += ' ' + className;
+  }
+
+  // classList.remove() Polyfill
+  function removeClass(el, className) {
+    if (el.classList)
+      el.classList.remove(className);
+    else
+      el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+  }
+
+  // Polyfill for CustomEvent
+  // source: https://developer.mozilla.org/en/docs/Web/API/CustomEvent
+  var CustomEvent = window.CustomEvent;
+  if (typeof CustomEvent === "object") {
+    CustomEvent = function ( event, params ) {
+      params = params || { bubbles: false, cancelable: false, detail: undefined };
+      var evt = document.createEvent( 'CustomEvent' );
+      evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail );
+      return evt;
+    };
+    CustomEvent.prototype = window.Event.prototype;
+  }
+
   // Rate limit the amount of times our update method gets called on window resize
   BoomQuery.prototype.debounce = function(context, func, wait, immediate) {
     var timeout;
@@ -77,11 +106,11 @@
             if ( currentWidth >= this.breaks[componentBreaksCounter][0] ) {
               currentBreak++;
             }
-            this.classList.remove(this.breaks[componentBreaksCounter][1]);
+            removeClass(this, this.breaks[componentBreaksCounter][1]);
           }
 
           if ( currentBreak >= 0 ) {
-            this.classList.add(this.breaks[currentBreak][1]);
+            addClass(this, this.breaks[currentBreak][1]);
           }
 
           // Create a custom object with details of our event to pass to our callback
@@ -101,7 +130,7 @@
       node.addEventListener("cleanup", function(event) {
         var self = this;
         this.breaks.forEach(function(br) {
-          self.classList.remove(br[1]);
+          classListRemove(self, br[1]);
         });
       });
 
