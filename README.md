@@ -19,7 +19,7 @@ There's a few options to get up and running with BoomQueries:
 * Install with [Bower](http://bower.io): `bower install boomqueries --save`
 * Install with [npm](http://npmjs.org): `npm install boomqueries`
 
-Please see tests/kitchensink.html for a thorough example of usage.
+[Simple Demo](http://boomtownroi.github.io/boomqueries/) | [Complex Demo](http://boomtownroi.github.io/boomqueries/kitchensink.html)
 
 ## Initializing/Adding Components
 
