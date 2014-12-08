@@ -1,4 +1,4 @@
-/*! BoomQueries 0.0.4 | http://boomtownroi.github.io/boomqueries/ | (c) 2014 BoomTown | MIT License */
+/*! BoomQueries 0.0.6 | http://boomtownroi.github.io/boomqueries/ | (c) 2014 BoomTown | MIT License */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD
