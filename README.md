@@ -10,6 +10,7 @@ As our product has grown to be more modular, we began to see the limitations of 
 * Debounce method used on resize for more controlled intervals
 * Control over sizing classes added for more granular control
 
+
 ## Getting Started
 
 There's a few options to get up and running with BoomQueries:
@@ -17,9 +18,10 @@ There's a few options to get up and running with BoomQueries:
 * Download the [latest release](https://github.com/boomtownroi/boomqueries/releases/latest)
 * Clone the repo, `git clone git://github.com/boomtownroi/boomqueries.git`
 * Install with [Bower](http://bower.io): `bower install boomqueries --save`
-* Install with [npm](http://npmjs.org): `npm install boomqueries`
+* Install with [npm](https://www.npmjs.com/package/boomqueries): `npm install boomqueries`
 
 [Simple Demo](http://boomtownroi.github.io/boomqueries/) | [Complex Demo](http://boomtownroi.github.io/boomqueries/kitchensink.html)
+
 
 ## Initializing/Adding Components
 
@@ -98,6 +100,7 @@ Using Backbone, Angular, React, etc. to dynamically interact with DOM elements? 
 
 	boomQueries.refresh();
 
+
 ## CommonJS Usage
 
 Anywhere you see window.boomQueries in our examples can be replaced with the CommonJS module version.
@@ -115,6 +118,7 @@ boomQueries.remove(".component");
 boomQueries.refresh();
 ```
 
+
 ## Internal Inspection
 
 If you need to see what nodes are currently being watched, you can log `boomQueries.inspect()`
@@ -125,6 +129,7 @@ And although it is not recommended, you can access the internal data for debuggi
 
 `boomQueries.nodes`
 `boomQueries.map`
+
 
 ## Contributing
 
@@ -140,6 +145,7 @@ _We use [GulpJS](http://gulpjs.com) to compile BoomQueries, so make sure you hav
 ## Versioning
 
 BoomQueries is maintained by using the [Semantic Versioning Specification (SemVer)](http://semver.org/)
+
 
 ## Copyright and License
 
