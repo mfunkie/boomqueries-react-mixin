@@ -13,7 +13,7 @@
 @gray-lightest:   #f6f6f6;
 @shade:           darken(@blue,10%);
 
-@primary-font:    'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;
+@primary-font:    'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
 @secondary-font:  'Roboto Slab', serif;
 
 @gutter:          30px;
@@ -49,26 +49,28 @@ body {
   font-family: @primary-font;
 }
 
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  }
+
 .site-header {
   background-color: @blue;
+  background-image: linear-gradient(to right, @blue 60%, darken(@blue,10%) 100%); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
   border-bottom: 2px solid white;
   height: 130px;
   margin-bottom: @gutter;
   padding: 0 @half-gutter;
-
-  /*box-shadow:
-      0 0 0 10px hsl(0, 0%, 85%),
-      0 0 0 20px hsl(0, 0%, 90%);*/
-
-  background-image: linear-gradient(to right, @blue 60%, darken(@blue,10%) 100%); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
-  background-repeat: repeat-x;
+  position: relative;
 }
 
 .site-header__bq {
   color: @gray-lightest;
   display: inline-block;
   font-family: @secondary-font;
-  font-size: 58px;
+  font-size: 32px;
   font-weight: 600;
   margin: 0;
   pointer-events: none;
@@ -119,6 +121,10 @@ body {
   .110em .105em @shade;
   user-select: none;
   .vert-align();
+
+  @media screen and (min-width: 480px) {
+    font-size: 48px;
+  }
 }
 
 .site-header__logo {
@@ -127,6 +133,31 @@ body {
   margin-right: @half-gutter;
   max-width: 100px;
   .vert-align();
+}
+
+.site-header__btlogo {
+  background-color: rgba(255,255,255,0.5);
+  border-radius: 4px;
+  display: none;
+  padding: 0.75em;
+  right: @half-gutter;
+  text-align: center;
+  text-decoration: none;
+  transition: all .2s;
+  width: 140px;
+  .vert-align(absolute);
+  &:hover,&:focus {
+    background-color: rgba(255,255,255,0.75);
+    border-radius: 4px;
+    box-shadow:
+      5px 5px 0px lighten(@blue,10%),
+      10px 10px 0px @blue;
+    text-decoration: none;
+  }
+  img { max-width: 100%; }
+  @media screen and (min-width: 600px) {
+    display: block;
+  }
 }
 
 .title-column {
