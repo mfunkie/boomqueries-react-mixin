@@ -46,14 +46,11 @@
 
 body {
   background-color: @gray-lighter;
+  color: #696969;
   font-family: @primary-font;
+  font-size: 16px;
 }
 
-.svg-defs {
-  position: absolute;
-  width: 0;
-  height: 0;
-  }
 
 .site-header {
   background-color: @blue;
@@ -144,7 +141,7 @@ body {
   text-align: center;
   text-decoration: none;
   transition: all .2s;
-  width: 140px;
+  width: 120px;
   .vert-align(absolute);
   &:hover,&:focus {
     background-color: rgba(255,255,255,0.75);
@@ -160,75 +157,84 @@ body {
   }
 }
 
+.site-intro {
+  margin-bottom: 2em;
+}
+
 .title-column {
   color: @gray-light;
   font-weight: normal;
   margin: 0 0 1em 0;
 }
 
-// Component
+// Element
+// -------------------------
 
-.component,.component2 {
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  margin: 1em 0;
+.element,.element2,.element3 {
+  margin: 2em 0;
   padding: 1em;
   transition: all .5s;
 }
 
-.component {
+.element {
   background-color: @blue;
 }
 
-.component__header {
+.element__header {
   color: white;
   font-weight: normal;
   margin: 0 0 1em 0;
 }
 
-.component--md {
-  background-color: darken(@blue,10%);
-  .component__header:after {
-    content: " (medium)";
+// Element modifiers
+
+.element--md {
+  .element__header:after {
+    content: " .element--md";
   }
 }
 
-.component--lg {
-  background-color: darken(@blue,20%);
-  .component__header:after {
-    content: " (large)";
+.element--lg {
+  .element__header:after {
+    content: " .element--lg";
   }
 }
 
-.component--xlg {
-  background-color: darken(@blue,28%);
-  .component__header:after {
-    content: " (xlarge)";
+.element--xlg {
+  .element__header:after {
+    content: " .element--xlg";
   }
 }
 
-// Component 2
+// Element 2
+// -------------------------
 
-.component2 {
+.element2 {
   background-color: @green;
 }
 
-.component2__header {
-  color: white;
-  font-weight: normal;
-  margin: 0 0 1em 0;
-}
+// Element 2 modifiers
 
-.component2--md {
-  background-color: darken(@green,5%);
-  .component2__header:after {
-    content: " (medium)";
+.element2--md {
+  .element__header:after {
+    content: " .element2--md";
   }
 }
 
-.component2--lg {
-  background-color: darken(@green,10%);
-  .component2__header:after {
-    content: " (large)";
+.element2--lg {
+  .element__header:after {
+    content: " .element2--lg";
+  }
+}
+
+
+// Prettify Code
+// -------------------------
+
+.pretty-code {
+  .prettyprint {
+    border-color: @gray-light;
+    padding: 1em;
   }
 }
 
