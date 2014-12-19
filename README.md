@@ -27,46 +27,55 @@ There's a few options to get up and running with BoomQueries:
 
 Use `boomQueries.add()` to register your component(s) with the BoomQueries library.
 
-	boomQueries.add('.component', [
-	    [480, "component--md"],
-	    [600, "component--lg"]
-	]);
+```js
+boomQueries.add('.component', [
+  [480, "component--md"],
+  [600, "component--lg"]
+]);
+```
 
 You can also register DOM nodes.
 
-	var component = document.createElement('div');
-	boomQueries.add(component, [
-	    [480, "component--md"],
-	    [600, "component--lg"]
-	]);
+```js
+var component = document.createElement('div');
+boomQueries.add(component, [
+  [480, "component--md"],
+  [600, "component--lg"]
+]);
+```
 
 When registering DOM nodes, you can pass an additional third parameter, id, to reference your node later in the application.
 
-	var component = document.createElement('div');
-	boomQueries.add(component, [
-	    [480, "component--md"],
-	    [600, "component--lg"]
-	], 'myComponent');
+```js
+var component = document.createElement('div');
+boomQueries.add(component, [
+  [480, "component--md"],
+  [600, "component--lg"]
+], 'myComponent');
 
-	// boomQueries.get('myComponent') you can get your node
-	// boomQueries.remove('myComponent') you can remove your node
+// boomQueries.get('myComponent') you can get your node
+// boomQueries.remove('myComponent') you can remove your node
+```
 
 You can also bulk add DOM nodes.
 
-	var components = [document.createElement('div'), document.createElement('div'), document.createElement('div'), document.createElement('div')];
-	boomQueries.add(components, [
-	    [480, "component--md"],
-	    [600, "component--lg"]
-	], 'myComponents');
+```js
+var components = [document.createElement('div'), document.createElement('div'), document.createElement('div'), document.createElement('div')];
+boomQueries.add(components, [
+  [480, "component--md"],
+  [600, "component--lg"]
+], 'myComponents');
 
-	// boomQueries.remove('myComponents') to remove them
-
+// boomQueries.remove('myComponents') to remove them
+```
 
 ## Refreshing Components
 
 When you are working with a dynamic application that has lots of DOM changes, you should refresh your boomQueries after change.
 
-	boomQueries.refresh();
+```js
+boomQueries.refresh();
+```
 
 The refresh method will remove event listeners from watched nodes that are no longer in the DOM and grab newly added elements based on their css selector.
 
@@ -75,21 +84,25 @@ The refresh method will remove event listeners from watched nodes that are no lo
 
 There are times when you would want to fire additional functionality on a node after it's been updated. You can do this by attaching a custom event listener to that node.
 
-	var component = document.createElement('div');
-    document.body.appendChild(component);
+```js
+var component = document.createElement('div');
+document.body.appendChild(component);
 
-    component.addEventListener('nodeUpdated', function(event){
-        console.log(event.detail);
-    });
+component.addEventListener('nodeUpdated', function(event){
+  console.log(event.detail);
+});
+```
 
-We pass the callback an object about the recent update: 'offsetWidth' and 'currentBreak'
+We pass the callback an object about the recent update: `offsetWidth` and `currentBreak`
 
 
 ## Removing Components
 
 You can remove components registered by BoomQueries by calling the `remove` method and specifying either your custom id or css selector.
 
-	boomQueries.remove('myComponent');
+```js
+boomQueries.remove('myComponent');
+```
 
 _You can freely add/remove components as needed throughout your app, so don't feel that you need to register them all at once!_
 
@@ -98,8 +111,9 @@ _You can freely add/remove components as needed throughout your app, so don't fe
 
 Using Backbone, Angular, React, etc. to dynamically interact with DOM elements? You can easily "refresh" BoomQueries by calling the `refresh()` method again:
 
-	boomQueries.refresh();
-
+```js
+boomQueries.refresh();
+```
 
 ## CommonJS Usage
 
