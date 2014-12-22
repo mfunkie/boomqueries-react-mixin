@@ -1,8 +1,8 @@
 # BoomQueries
 
-BoomQueries is our take on element queries; sizing elements based on their container.
+BoomQueries is our take on [element queries](http://responsiveimagescg.github.io/eq-usecases/) - sizing elements based on their container.
 
-As our product has grown to be more modular, we began to see the limitations of sizing those modular components across more granular scopes; main content areas, sidebars, etc. And most of all, the specificities of keeping up with all these variations started to take a toll on productivity and maintenance. While there are other implementations, we didn't find any that quite fit our needs. The benefits of our version are:
+As our product has grown to be more modular, we began to see the limitations of stling modular components across more granular scopes with media queries (main content areas, sidebars, etc.). The specificities of keeping up with all these variations started to take a toll on productivity and maintenance. While there are other element query implementations, we didn't find any that quite fit our needs. The benefits of our version are:
 
 * Vanilla JS
 * Made for modern browsers (IE9+) to keep dependencies small
@@ -25,7 +25,7 @@ There's a few options to get up and running with BoomQueries:
 
 ## Initializing/Adding Components
 
-Use `boomQueries.add()` to register your component(s) with the BoomQueries library.
+Use `boomQueries.add()` to register your component(s) with the BoomQueries library. 
 
 ```js
 boomQueries.add('.component', [
@@ -33,6 +33,8 @@ boomQueries.add('.component', [
   [600, "component--lg"]
 ]);
 ```
+
+In this example, .component will receive the .component--md modifier class when .component is 480px wide. At 600px wide, .component will receive the .component--lg modifier class and .component--md will be removed.
 
 You can also register DOM nodes.
 
