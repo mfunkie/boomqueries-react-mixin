@@ -2,7 +2,7 @@
 
 BoomQueries is our take on [element queries](http://responsiveimagescg.github.io/eq-usecases/) - sizing elements based on their container.
 
-As our product has grown to be more modular, we began to see the limitations of stling modular components across more granular scopes with media queries (main content areas, sidebars, etc.). The specificities of keeping up with all these variations started to take a toll on productivity and maintenance. While there are other element query implementations, we didn't find any that quite fit our needs. The benefits of our version are:
+As our product has grown to be more modular, we began to see the limitations of styling modular components across more granular scopes with media queries (main content areas, sidebars, etc.). The specificities of keeping up with all these variations started to take a toll on productivity and maintenance. While there are other element query implementations, we didn't find any that quite fit our needs. The benefits of our version are:
 
 * Vanilla JS
 * Made for modern browsers (IE9+) to keep dependencies small
