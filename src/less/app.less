@@ -11,6 +11,8 @@
 @gray-light:      #cccccc;
 @gray-lighter:    #ececec;
 @gray-lightest:   #f6f6f6;
+@white:           darken(#fff,2%);
+
 @shade:           darken(@blue,10%);
 
 @primary-font:    'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -167,24 +169,31 @@ body {
   margin: 0 0 1em 0;
 }
 
+
+
 // Element
 // -------------------------
 
 .element,.element2,.element3 {
   margin: 2em 0;
   padding: 1em;
+  position: relative;
   transition: all .5s;
 }
+.element__header {
+  & + * { margin-top: @half-gutter; }
+}
+
+
+// Element modifiers
 
 .element {
   background-color: @blue;
+  .element__header {
+    background-color: darken(@blue, 20%);
+  }
 }
 
-.element__header {
-  color: white;
-  font-weight: normal;
-  margin: 0 0 1em 0;
-}
 
 // Element modifiers
 
@@ -210,7 +219,10 @@ body {
 // -------------------------
 
 .element2 {
-  background-color: @green;
+  background-color: @orange;
+  .element__header {
+    background-color: darken(@orange, 20%);
+  }
 }
 
 // Element 2 modifiers
