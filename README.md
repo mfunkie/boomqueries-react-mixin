@@ -1,4 +1,5 @@
-# BoomQueries
+# ![](dist/images/logo-boomqueries.png =60x) BoomQueries
+
 
 BoomQueries is our take on [element queries](http://responsiveimagescg.github.io/eq-usecases/) - sizing elements based on their container.
 
