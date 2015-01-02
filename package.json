@@ -1,16 +1,17 @@
 {
-  "name": "boomqueries",
-  "title": "BoomQueries",
-  "description": "BoomQueries is our take on element queries; sizing elements based on their container.",
+  "name": "boomqueries-react",
+  "title": "BoomQueries React",
+  "description": "BoomQueries React is a Mixin for use with the BoomQueries library.",
   "version": "0.0.6",
   "keywords": [
+    "react",
     "boomqueries",
     "element",
     "query",
     "resize",
     "client"
   ],
-  "homepage": "http://boomtownroi.github.io/boomqueries/",
+  "homepage": "http://mfunkie.github.io/boomqueries-react/",
   "author": {
     "name": "BoomTown",
     "email": "info@boomtownroi.com",
@@ -18,12 +19,12 @@
   },
   "files": [
     "README.md",
-    "dist/js/boomqueries.js"
+    "dist/js/BoomQueriesReactMixin.js"
   ],
-  "main": "dist/js/boomqueries.js",
+  "main": "dist/js/BoomQueriesReactMixin.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/boomtownroi/boomqueries"
+    "url": "git://github.com/mfunkie/boomqueries-react"
   },
   "licenses": [
     {
@@ -32,13 +33,9 @@
     }
   ],
   "devDependencies": {
-    "browser-sync": "^1.7.2",
     "gulp": "^3.8.10",
-    "gulp-autoprefixer": "^2.0.0",
-    "gulp-gh-pages": "^0.4.0",
     "gulp-header": "^1.2.2",
     "gulp-jshint": "^1.9.0",
-    "gulp-less": "^1.3.6",
     "gulp-rename": "^1.2.0",
     "gulp-uglify": "^1.0.1",
     "jshint-stylish": "^1.0.0",
