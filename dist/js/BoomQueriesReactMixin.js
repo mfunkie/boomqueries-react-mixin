@@ -1,3 +1,4 @@
+/*! BoomQueries React Mixin 0.0.6 | http://mfunkie.github.io/boomqueries-react/ | (c) 2014 BoomTown | MIT License */
 'use strict';
 
 (function (root, factory) {
