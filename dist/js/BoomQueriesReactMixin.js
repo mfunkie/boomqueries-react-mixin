@@ -56,7 +56,7 @@
         });
         boomQueries.add(component, breakPointList);
 
-        component.addEventListener('nodeUpdated', this._componentUpdated.bind(this));
+        component.addEventListener('nodeUpdated', this._componentUpdated);
 
         boomQueries.refresh();
       },
