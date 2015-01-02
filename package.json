@@ -1,6 +1,6 @@
 {
-  "name": "boomqueries-react",
-  "title": "BoomQueries React",
+  "name": "boomqueries-react-mixin",
+  "title": "BoomQueries React Mixin",
   "description": "BoomQueries React is a Mixin for use with the BoomQueries library.",
   "version": "0.0.6",
   "keywords": [
@@ -36,10 +36,8 @@
     "gulp": "^3.8.10",
     "gulp-header": "^1.2.2",
     "gulp-jshint": "^1.9.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-uglify": "^1.0.1",
     "jshint-stylish": "^1.0.0",
-    "merge-stream": "^0.1.6"
+    "boomqueries": "^0.0.6"
   },
   "_npmUser": {
     "name": "mfunkie",
