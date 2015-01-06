@@ -1,1 +1,1 @@
-# <img src="http://boomtownroi.github.io/boomqueries/images/logo-boomqueries.png" width="50px;">  BoomQueries React Mixin
+# <img src="boom_queries_react.png" width="50px;">  BoomQueries React Mixin
